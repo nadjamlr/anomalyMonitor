@@ -1,10 +1,13 @@
 // Author: Nadja Müller
 // Add Anomaly Screen
 
-import { globalStyles } from '../../constants/styles';
-import { StyleSheet, Text, View, ScrollView, TextInput, Button} from 'react-native';
 
-export default function NewAnomalyScreen() {
+import { globalStyles } from '../../constants/styles';
+import Button from '../../components/Button';
+import { StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
+
+
+export default function AddScreen() {
   return (
     <View style={globalStyles.container}>
 
@@ -19,22 +22,23 @@ export default function NewAnomalyScreen() {
 
         <ScrollView style={styles.bodyContent}>
             <TextInput
-                style={styles.input}
+                style={globalStyles.input}
                 value="string"
                 placeholder="Name">
             </TextInput>
             <TextInput
-                style={styles.input}
+                style={globalStyles.input}
                 value="string"
                 placeholder="Description">
             </TextInput>
             <TextInput
-                style={styles.input}
+                style={globalStyles.input}
                 value="string"
                 placeholder="Image">
             </TextInput>
             <Button
-                title="Save anomaly">
+                text="Save anomaly"
+                onClick={}>
             </Button>
 
         </ScrollView>
@@ -44,15 +48,12 @@ export default function NewAnomalyScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
   bodyContent: {
     width: "100%",
     flex: 8,
     flexDirection: "column",
-  },
-  input: {
-    width: "100%",
-    fontSize: 12,
   },
   button: {
     width: "100%",

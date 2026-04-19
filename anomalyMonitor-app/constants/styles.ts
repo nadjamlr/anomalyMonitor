@@ -56,7 +56,29 @@ export const globalStyles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     flexVertical: {
+        flexDirection: "column",
+        gap: 12,
+        width: '100%',
+    },
+    flexHorizontal: {
         flexDirection: "row",
         gap: 12,
+        width: '100%',
+    },
+    button: {
+        width: "100%",
+        backgroundColor: Colors.white,
+        paddingVertical: 14,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    buttonText: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: Colors.primary03,
+    },
+    input: {
+        width: "100%",
+        fontSize: 12,
     },
 });

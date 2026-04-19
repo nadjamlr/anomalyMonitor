@@ -1,42 +1,37 @@
 // Author: Nadja Müller
-// Anomaly Card on Anomalies Screen
-
+// Search Anomaly Card on Search Screen
 
 import { globalStyles } from '../constants/styles';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Colors } from '../constants/colors'
 
 
-interface AnomalyCardProps {
+interface SearchCardProps {
     image: string;
     heading: string;
     subheading: string;
     date: string;
-    time?: string;
 }
 
 
-export default function AnomalyCard({image, heading, subheading, date, time}: AnomalyCardProps) {
+export default function SearchCard({image, heading, subheading, date}: SearchCardProps) {
     return(
         <View style={styles.card}>
             <Image
                 source={{ uri: image }}
-                style={{ width: '100%', height: '60%' }}
+                style={{ width: '20%', height: '100%' }}
                 resizeMode="cover"
             />
             <View style={styles.textBox}>
                 <Text style={globalStyles.h3}>
                     {heading}
                 </Text>
-                {/*<Text style={globalStyles.p}>
+                <Text style={globalStyles.p}>
                     {subheading}
-                </Text>*/}
+                </Text>
                 <View style={globalStyles.flexHorizontal}>
                     <Text style={globalStyles.p2}>
                         {date}
-                    </Text>
-                    <Text style={globalStyles.p2}>
-                        {time}
                     </Text>
                 </View>
             </View>
@@ -45,17 +40,19 @@ export default function AnomalyCard({image, heading, subheading, date, time}: An
     )
 }
 
-
 const styles = StyleSheet.create ({
     card: {
+        flex: 1,
         width: "100%",
-        height: 200,
+        height: 100,
         backgroundColor: Colors.primary02,
         borderColor: Colors.primary01,
         borderWidth: 0.5,
         borderRadius: 8,
         overflow: 'hidden',
         marginBottom: 20,
+        flexDirection: 'column',
+
     },
     cardImage: {
         width: "100%",

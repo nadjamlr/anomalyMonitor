@@ -1,8 +1,10 @@
 // Author: Nadja Müller
 // Home Screen Screen
 
+
 import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, Image } from 'react-native';
+
 
 export default function HomeScreen() {
   return (
@@ -30,6 +32,7 @@ export default function HomeScreen() {
 
   );
 }
+
 
 const styles = StyleSheet.create({
   textContainer: {

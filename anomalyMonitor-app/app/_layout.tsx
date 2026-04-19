@@ -1,3 +1,6 @@
+// Author: Nadja Müller
+// Screen Layout
+
 import { Stack } from 'expo-router';
 // import { AnomalyProvider } from '../context/AnomalyContext'
 

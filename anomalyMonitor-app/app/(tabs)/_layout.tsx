@@ -1,6 +1,10 @@
+// Author: Nadja Müller
+
+
 import { Tabs } from 'expo-router';
 import { Image } from 'react-native';
 import { Colors } from '../../constants/colors';
+
 
 // @assets/icons/index.ts
 export const TabIcons = {
@@ -9,6 +13,7 @@ export const TabIcons = {
   newAnomaly: require('../../assets/icons/add.png'),
   search: require('../../assets/icons/search.png'),
 };
+
 
 export default function TabsLayout () {
     return (

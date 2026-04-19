@@ -1,9 +1,11 @@
 // Author: Nadja Müller
 // List of Anomalies Screen
 
+
 import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import AnomalyCard from '../../components/AnomalyCard';
+
 
 const testAnomalies = [
   {
@@ -48,7 +50,7 @@ const testAnomalies = [
   },
 ]
 
-export default function MyAnomaliesScreen() {
+export default function AnomaliesScreen() {
   return (
     <View style={globalStyles.container}>
 
@@ -76,6 +78,7 @@ export default function MyAnomaliesScreen() {
 
   );
 }
+
 
 const styles = StyleSheet.create({
   bodyContent: {
