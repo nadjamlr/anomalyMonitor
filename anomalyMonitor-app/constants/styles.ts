@@ -28,7 +28,7 @@ export const globalStyles = StyleSheet.create({
         fontWeight: "400",
     },
     p2: {
-        fontSize: 10,
+        fontSize: 11,
         color: Colors.primary01,
         lineHeight: 16,
         fontWeight: "500",
