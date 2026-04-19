@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '../constants/colors'
 
+
 export const globalStyles = StyleSheet.create({
     h1: {
         fontSize: 42,
         color: Colors.white,
-        fontWeight: "600",
+        fontWeight: "700",
     },
     h2: {
         fontSize: 16,
@@ -14,7 +15,7 @@ export const globalStyles = StyleSheet.create({
         letterSpacing: 2,
     }, 
     p: {
-        fontSize: 12,
+        fontSize: 14,
         color: Colors.primary01,
         marginTop: 16,
         lineHeight: 24,
