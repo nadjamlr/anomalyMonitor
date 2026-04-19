@@ -65,7 +65,7 @@ export default function SearchScreen() {
             </Text>
         </View>
 
-        <View style={globalStyles.flexVertical}>
+        <View style={globalStyles.flexHorizontal}>
           <View style={styles.filter}>
             <Text style={globalStyles.h2}>
               From

@@ -52,7 +52,6 @@ const styles = StyleSheet.create ({
         overflow: 'hidden',
         marginBottom: 20,
         flexDirection: 'column',
-
     },
     cardImage: {
         width: "100%",

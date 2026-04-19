@@ -5,58 +5,60 @@
 import { globalStyles } from '../../constants/styles';
 import Button from '../../components/Button';
 import { StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
+import InputField from '../../components/InputField';
 
 
 export default function AddScreen() {
-  return (
-    <View style={globalStyles.container}>
 
-        <View style={globalStyles.heading}>
-            <Text style={globalStyles.h2}>
-                Create a report
-            </Text>
-            <Text style={globalStyles.h1}>
-                New Anomaly
-            </Text>
-        </View>
+    function addAnomaly() {
+        // TODO: implement addAnomaly
+        console.log("addAnomaly called");
+    }
+    return (
+        <View style={globalStyles.container}>
 
-        <ScrollView style={styles.bodyContent}>
-            <TextInput
-                style={globalStyles.input}
-                value="string"
-                placeholder="Name">
-            </TextInput>
-            <TextInput
-                style={globalStyles.input}
-                value="string"
-                placeholder="Description">
-            </TextInput>
-            <TextInput
-                style={globalStyles.input}
-                value="string"
-                placeholder="Image">
-            </TextInput>
-            <Button
-                text="Save anomaly"
-                onClick={}>
-            </Button>
+            <View style={globalStyles.heading}>
+                <Text style={globalStyles.h2}>
+                    Create a report
+                </Text>
+                <Text style={globalStyles.h1}>
+                    New Anomaly
+                </Text>
+            </View>
 
-        </ScrollView>
+            <ScrollView style={styles.bodyContent}>
+                <InputField
+                    type="text"
+                    label="Name"
+                />
+                <InputField
+                    type="text"
+                    label="Description"
+                />
+                <InputField
+                    type="image"
+                    label="Image"
+                />
+                <Button
+                    text="Save anomaly"
+                    onClick={addAnomaly}>
+                </Button>
 
-  </View>
+            </ScrollView>
 
-  );
-}
+    </View>
+    );
+    }
 
 
-const styles = StyleSheet.create({
-  bodyContent: {
-    width: "100%",
-    flex: 8,
-    flexDirection: "column",
-  },
-  button: {
-    width: "100%",
-    fontSize: 16,
-  },
-})
+    const styles = StyleSheet.create({
+    bodyContent: {
+        width: "100%",
+        flex: 8,
+        flexDirection: "column",
+    },
+    button: {
+        width: "100%",
+        fontSize: 16,
+    },
+    })
