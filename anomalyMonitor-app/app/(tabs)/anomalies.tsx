@@ -31,7 +31,6 @@ export default function MyAnomaliesScreen() {
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 3,
-    backgroundColor:'#000',
     width: '100%',
   },
   bodyContent: {

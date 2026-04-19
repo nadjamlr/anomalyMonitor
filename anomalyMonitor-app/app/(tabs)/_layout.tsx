@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Image } from 'react-native';
+import { Colors } from '../../constants/colors';
 
 // @assets/icons/index.ts
 export const TabIcons = {
@@ -14,11 +15,11 @@ export default function TabsLayout () {
         <Tabs screenOptions={{
             headerShown: false,
             tabBarStyle: {
-                backgroundColor: '#050A25',
-                borderTopColor: '#1a1f3a',
+                backgroundColor: Colors.primary03,
+                borderTopColor: Colors.primary02,
             },
-            tabBarActiveTintColor: '#ABDFFF',
-            tabBarInactiveTintColor: '#555',
+            tabBarActiveTintColor: Colors.primary01,
+            tabBarInactiveTintColor: Colors.muted,
         }}>
             <Tabs.Screen
 
@@ -34,7 +35,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="myAnomalies"
+                name="Anomalies"
                 options={{ 
                     title: 'Anomalies',     
                     tabBarIcon: ({ color, size }) => (
@@ -46,7 +47,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="newAnomaly"
+                name="Add"
                 options={{ 
                     title: 'New',     
                     tabBarIcon: ({ color, size }) => (
