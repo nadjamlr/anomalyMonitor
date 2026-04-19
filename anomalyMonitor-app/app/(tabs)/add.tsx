@@ -58,8 +58,4 @@ const styles = StyleSheet.create({
     width: "100%",
     fontSize: 16,
   },
-  navBar: {
-    width: "100%",
-    flex: 1,
-  },
 })

@@ -35,24 +35,24 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="Anomalies"
-                options={{ 
-                    title: 'Anomalies',     
-                    tabBarIcon: ({ color, size }) => (
-                        <Image
-                            source={TabIcons.anomalies}
-                            style={{ width: size, height: size, tintColor: color }}
-                        />
-                    )
-                }}
-            />
-            <Tabs.Screen
                 name="Add"
                 options={{ 
                     title: 'New',     
                     tabBarIcon: ({ color, size }) => (
                         <Image
                             source={TabIcons.newAnomaly}
+                            style={{ width: size, height: size, tintColor: color }}
+                        />
+                    )
+                }}
+            />
+            <Tabs.Screen
+                name="Anomalies"
+                options={{ 
+                    title: 'Anomalies',     
+                    tabBarIcon: ({ color, size }) => (
+                        <Image
+                            source={TabIcons.anomalies}
                             style={{ width: size, height: size, tintColor: color }}
                         />
                     )

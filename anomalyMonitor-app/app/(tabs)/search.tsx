@@ -2,7 +2,7 @@
 // Search for Anomaly Screen
 
 import { globalStyles } from '../../constants/styles';
-import ListedAnomaly from '../../components/ListedAnomaly';
+import ListedAnomaly from '../../components/AnomalyCard';
 import { StyleSheet, Text, View, ScrollView, Button} from 'react-native';
 
 
@@ -48,9 +48,5 @@ const styles = StyleSheet.create({
   button: {
     width: "100%",
     fontSize: 16,
-  },
-  navBar: {
-    width: "100%",
-    flex: 1,
   },
 })

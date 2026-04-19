@@ -8,12 +8,11 @@ export default function HomeScreen() {
   return (
     <View style={globalStyles.container}>
 
-      <View style={styles.imageContainer}>
+      <View style={globalStyles.imageContainer}>
         <Image
          source={require('../../assets/galaxy-home.jpg')}
          style={{ width: '100%', height: '100%' }}
          resizeMode="cover"
-
       />
       </View>
       <View style={styles.textContainer}>
@@ -33,16 +32,8 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  imageContainer: {
-    flex: 3,
-    width: '100%',
-  },
   textContainer: {
     flex: 6,
     flexDirection: "column",
-  },
-  navBar: {
-    width: "100%",
-    flex: 1,
   },
 })
