@@ -1,12 +1,12 @@
 // Author: Nadja Müller
 // Home Screen Screen
 
-import { StatusBar } from 'expo-status-bar';
+import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
 
       <View style={styles.imageContainer}>
         <Image
@@ -17,13 +17,13 @@ export default function HomeScreen() {
       />
       </View>
       <View style={styles.textContainer}>
-          <Text style={styles.h2}>
+          <Text style={globalStyles.h2}>
               Nasa Anomaly Monitor
           </Text>
-          <Text style={styles.h1}>
+          <Text style={globalStyles.h1}>
               Home
           </Text>
-          <Text style={styles.p}>
+          <Text style={globalStyles.p}>
               Review the mission status, recent activity and the most important anomaly alerts in one place.
           </Text>
       </View>
@@ -33,42 +33,13 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#050A25',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: "column",
-    gap: 28,
-    paddingTop: 60,
-    paddingBottom: 40,
-    paddingHorizontal: 20,
-  },
   imageContainer: {
     flex: 3,
-    backgroundColor:'#000',
     width: '100%',
   },
   textContainer: {
     flex: 6,
     flexDirection: "column",
-  },
-  h1: {
-    fontSize: 48,
-    color: "#fff",
-    fontWeight: "600",
-  },
-  h2: {
-    fontSize: 18,
-    textTransform: "uppercase",
-    color: "#ABDFFF",
-    letterSpacing: 2,
-  }, 
-  p: {
-    fontSize: 16,
-    color: "#ABDFFF",
-    marginTop: 16,
-    lineHeight: 24,
   },
   navBar: {
     width: "100%",

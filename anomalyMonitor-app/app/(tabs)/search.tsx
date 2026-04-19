@@ -1,18 +1,20 @@
 // Author: Nadja Müller
 // Search for Anomaly Screen
 
+import { globalStyles } from '../../constants/styles';
 import ListedAnomaly from '../../components/ListedAnomaly';
 import { StyleSheet, Text, View, ScrollView, Button} from 'react-native';
 
+
 export default function SearchScreen() {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
 
-        <View style={styles.heading}>
-            <Text style={styles.h2}>
+        <View style={globalStyles.heading}>
+            <Text style={globalStyles.h2}>
                 Explore Records
             </Text>
-            <Text style={styles.h1}>
+            <Text style={globalStyles.h1}>
                 APOD Search
             </Text>
         </View>
@@ -30,36 +32,10 @@ export default function SearchScreen() {
         </ScrollView>
 
   </View>
-
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#050A25',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: "column",
-    gap: 28,
-    paddingTop: 60,
-    paddingHorizontal: 20,
-  },
-  heading: {
-    flex: 6,
-    flexDirection: "column",
-  },
-  h1: {
-    fontSize: 48,
-    color: "#fff",
-    fontWeight: "600",
-  },
-  h2: {
-    fontSize: 16,
-    textTransform: "uppercase",
-    color: "#ABDFFF",
-    letterSpacing: 2,
-  }, 
   bodyContent: {
     width: "100%",
     flex: 8,

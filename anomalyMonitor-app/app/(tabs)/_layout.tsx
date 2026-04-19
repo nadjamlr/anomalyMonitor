@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Image } from 'react-native';
 
-
 // @assets/icons/index.ts
 export const TabIcons = {
   home: require('../../assets/icons/home.png'),
@@ -12,8 +11,17 @@ export const TabIcons = {
 
 export default function TabsLayout () {
     return (
-        <Tabs screenOptions={{ headerShown: false }}>
+        <Tabs screenOptions={{
+            headerShown: false,
+            tabBarStyle: {
+                backgroundColor: '#050A25',
+                borderTopColor: '#1a1f3a',
+            },
+            tabBarActiveTintColor: '#ABDFFF',
+            tabBarInactiveTintColor: '#555',
+        }}>
             <Tabs.Screen
+
                 name="index"
                 options={{ 
                     title: 'Home',     
