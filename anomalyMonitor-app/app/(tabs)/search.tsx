@@ -3,8 +3,9 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import SearchCard from '../../components/SearchAnomalyCard';
+import SearchCard from '../../components/SearchCard';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import Button from '../../components/Button'
 // import { filterAnomalies } from '../../'
 
 
@@ -53,17 +54,25 @@ const FoundAnomalies = [
 
 
 export default function SearchScreen() {
+
+  function filterAnomalies() {
+    // TODO: implement function
+    console.log("Anomalies get filtered after parameters")
+  }
+
   return (
     <View style={globalStyles.container}>
 
-        <View style={globalStyles.heading}>
-            <Text style={globalStyles.h2}>
-                Explore Records
-            </Text>
-            <Text style={globalStyles.h1}>
-                APOD Search
-            </Text>
-        </View>
+      <View style={globalStyles.heading}>
+          <Text style={globalStyles.h2}>
+              Explore Records
+          </Text>
+          <Text style={globalStyles.h1}>
+              APOD Search
+          </Text>
+      </View>
+
+      <ScrollView style={styles.bodyContent}>
 
         <View style={globalStyles.flexHorizontal}>
           <View style={styles.filter}>
@@ -77,21 +86,21 @@ export default function SearchScreen() {
             </Text>
           </View>
         </View>
-        {/*<Button
-          text="Search"
-          onClick= {filterAnomalies(from, to)}
-        />*/}
 
-        <ScrollView style={styles.bodyContent}>
-            {FoundAnomalies.map((anomaly) => (
-              <SearchCard
-                image={anomaly.url}
-                heading={anomaly.title}
-                subheading={anomaly.explanation}
-                date={anomaly.date}
-              />
-            ))}
-        </ScrollView>
+        <Button
+          text="Search"
+          onClick= {filterAnomalies}
+        />
+
+        {FoundAnomalies.map((anomaly) => (
+          <SearchCard
+            image={anomaly.url}
+            heading={anomaly.title}
+            subheading={anomaly.explanation}
+            date={anomaly.date}
+          />
+        ))}
+      </ScrollView>
 
   </View>
   );
@@ -109,5 +118,6 @@ const styles = StyleSheet.create({
     width: '50%',
     flexDirection: 'column',
     gap: 10,
+    height: 60,
   },
 })

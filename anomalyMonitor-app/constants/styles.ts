@@ -19,14 +19,13 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         color: Colors.white,
         letterSpacing: 0.5,
-        fontWeight: "600",
+        fontWeight: "800",
     },
     p: {
         fontSize: 14,
         color: Colors.primary01,
-        marginTop: 16,
-        lineHeight: 24,
-        fontWeight: "500",
+        lineHeight: 20,
+        fontWeight: "400",
     },
     p2: {
         fontSize: 10,
@@ -42,7 +41,7 @@ export const globalStyles = StyleSheet.create({
         flexDirection: "column",
         gap: 40,
         paddingTop: 80,
-        paddingBottom: 40,
+        paddingBottom: 0,
         paddingHorizontal: 20,
     },
     overlayContainer: {
@@ -84,6 +83,7 @@ export const globalStyles = StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
         marginTop: 10,
+        marginBottom: 20,
     },
     buttonText: {
         fontSize: 14,
@@ -93,5 +93,8 @@ export const globalStyles = StyleSheet.create({
     input: {
         width: "100%",
         fontSize: 12,
+    },
+    bottomMargin: {
+        marginBottom: 8,
     },
 });

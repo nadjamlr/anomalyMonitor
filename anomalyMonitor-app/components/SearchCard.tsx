@@ -19,23 +19,22 @@ export default function SearchCard({image, heading, subheading, date}: SearchCar
         <View style={styles.card}>
             <Image
                 source={{ uri: image }}
-                style={{ width: '20%', height: '100%' }}
+                style={{ width: '25%', height: '100%' }}
                 resizeMode="cover"
             />
             <View style={styles.textBox}>
-                <Text style={globalStyles.h3}>
-                    {heading}
-                </Text>
-                <Text style={globalStyles.p}>
-                    {subheading}
-                </Text>
-                <View style={globalStyles.flexHorizontal}>
-                    <Text style={globalStyles.p2}>
+                <View style={globalStyles.bottomMargin}>
+                    <Text style={globalStyles.p2} numberOfLines={1}>
                         {date}
                     </Text>
+                    <Text style={globalStyles.h3} numberOfLines={1} ellipsizeMode="tail">
+                        {heading}
+                    </Text>
                 </View>
+                <Text style={globalStyles.p} numberOfLines={2} ellipsizeMode="tail">
+                    {subheading}
+                </Text>
             </View>
-            
         </View>
     )
 }
@@ -44,22 +43,21 @@ const styles = StyleSheet.create ({
     card: {
         flex: 1,
         width: "100%",
-        height: 100,
+        height: 120,
         backgroundColor: Colors.primary02,
         borderColor: Colors.primary01,
         borderWidth: 0.5,
         borderRadius: 8,
         overflow: 'hidden',
-        marginBottom: 20,
-        flexDirection: 'column',
-    },
-    cardImage: {
-        width: "100%",
-        flex: 1,
+        marginBottom: 12,
+        flexDirection: 'row',
+        alignContent: 'center',
     },
     textBox: {
-        paddingHorizontal: 10,
-        paddingVertical: 16,
-        gap: 10,
+        flex: 1,
+        paddingHorizontal: 12,
+        paddingVertical: 12,
+        gap: 2,
+        overflow: 'hidden',
     },
 })
