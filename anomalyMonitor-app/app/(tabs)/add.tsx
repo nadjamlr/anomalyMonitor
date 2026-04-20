@@ -6,6 +6,7 @@ import { globalStyles } from '../../constants/styles';
 import Button from '../../components/Button';
 import { StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
 import InputField from '../../components/InputField';
+import { useAnomaly } from '../../context/AnomalyContext'
 
 
 export default function AddScreen() {
@@ -13,6 +14,7 @@ export default function AddScreen() {
     function addAnomaly() {
         // TODO: implement addAnomaly
         console.log("addAnomaly called");
+        useAnomaly(addAnomaly)
     }
     return (
         <View style={globalStyles.container}>

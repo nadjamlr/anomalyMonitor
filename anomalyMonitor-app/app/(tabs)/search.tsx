@@ -8,10 +8,10 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-nativ
 import Button from '../../components/Button'
 import { Link } from 'expo-router'
 import allAnomaliesData from '../../data/allAnomalies.json'
-
-const allAnomalies = allAnomaliesData.allanomalies
+import { useAnomaly } from '../../context/AnomalyContext';
 // import { filterAnomalies } from '../../'
 
+const allAnomalies = allAnomaliesData.allanomalies
 
 
 export default function SearchScreen() {

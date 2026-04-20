@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-nativ
 import AnomalyCard from '../../components/AnomalyCard';
 import { Link } from 'expo-router'
 import myAnomaliesData from '../../data/myAnomalies.json'
+import { useAnomaly } from '../../context/AnomalyContext';
 
 const myAnomalies = myAnomaliesData.myanomalies
 
