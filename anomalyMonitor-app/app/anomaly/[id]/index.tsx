@@ -5,17 +5,18 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { globalStyles } from '../../../constants/styles';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import Button from '../../../components/Button'
 import { useAnomaly } from '../../../context/AnomalyContext'
 import { Colors } from '../../../constants/colors'
+import Button from '../../../components/Button'
 
 
 export default function AnomalyDetails() {
-    const { title } = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
     const router = useRouter();
-    const { getAnomalyByName, addAnomaly } = useAnomaly()
+    const { getAnomalyByName, addAnomaly, myAnomalies } = useAnomaly()
 
-    const anomaly = getAnomalyByName(title as string);
+    const anomaly = getAnomalyByName(id as string);
+    const isAlreadySaved = myAnomalies.some(a => a.title === anomaly?.title)
 
     if (!anomaly) {
         return (
@@ -50,12 +51,14 @@ export default function AnomalyDetails() {
                     </Text>
                 </View>
             </ScrollView>
-            <View style={styles.bottomOverlay}>
-                <Button
-                    text="Save to my anomalies"
-                    onClick={() => addAnomaly(anomaly)}
-                />
-            </View>
+            {!isAlreadySaved && (
+                <View style={styles.bottomOverlay}>
+                    <Button
+                        text="Save to my anomalies"
+                        onClick={() => addAnomaly(anomaly)}
+                    />
+                </View>
+            )}
         </View>
     )
 }
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     closeButtonText: {
-        color: '#fff',
+        color: Colors.white,
         fontSize: 16,
         fontWeight: '600',
     },

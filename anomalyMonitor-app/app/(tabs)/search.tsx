@@ -13,7 +13,7 @@ import Button from '../../components/Button'
 
 export default function SearchScreen() {
 
-  const allAnomalies = useAnomaly()
+  const { allAnomalies } = useAnomaly()
 
   function filterAnomalies() {
     // TODO: implement function

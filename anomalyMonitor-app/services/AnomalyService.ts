@@ -1,7 +1,7 @@
 // Author: Nadja Müller
 // Anomaly Data Fetch via Nasa API
 
-const API_NASA_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+const API_NASA_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=10';
 
 
 // Anomaly Type
@@ -17,11 +17,15 @@ export interface Anomaly {
 }
 
 
-// Fetch Anonmalies
+// Fetch Anomalies
 export async function fetchAnomalies(): Promise<Anomaly[]> {
     const response = await fetch(API_NASA_URL)
+    if (!response.ok) {
+        console.error('NASA API error:', response.status)
+        return []
+    }
     const data = await response.json()
-    return data
+    return Array.isArray(data) ? data : [data]
 }
 
 
