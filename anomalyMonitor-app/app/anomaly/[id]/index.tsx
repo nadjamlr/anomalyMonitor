@@ -6,19 +6,16 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { globalStyles } from '../../../constants/styles';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Button from '../../../components/Button'
-import myAnomaliesData from '../../../data/myAnomalies.json'
-import allAnomaliesData from '../../../data/allAnomalies.json'
+import { useAnomaly } from '../../../context/AnomalyContext'
 import { Colors } from '../../../constants/colors'
-
-const myAnomalies = myAnomaliesData.myanomalies
-const allAnomalies = allAnomaliesData.allanomalies
 
 
 export default function AnomalyDetails() {
     const { id } = useLocalSearchParams();
     const router = useRouter();
+    const { getAnomalyById, addAnomaly } = useAnomaly()
 
-    const anomaly = [...myAnomalies, ...allAnomalies].find(a => a.id === id);
+    const anomaly = getAnomalyById(id as string);
 
     if (!anomaly) {
         return (
@@ -56,6 +53,7 @@ export default function AnomalyDetails() {
             <View style={styles.bottomOverlay}>
                 <Button
                     text="Save to my anomalies"
+                    onClick={() => addAnomaly(anomaly)}
                 />
             </View>
         </View>
