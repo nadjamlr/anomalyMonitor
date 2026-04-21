@@ -50,6 +50,9 @@ export default function AnomalyDetails() {
                         {anomaly.explanation}
                     </Text>
                 </View>
+                <Text style={globalStyles.p2}>
+                    {anomaly.copyright}
+                </Text>
             </ScrollView>
             {!isAlreadySaved && (
                 <View style={styles.bottomOverlay}>
