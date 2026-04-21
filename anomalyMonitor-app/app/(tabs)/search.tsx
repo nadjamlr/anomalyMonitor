@@ -6,19 +6,29 @@ import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router'
 import { useAnomaly } from '../../context/AnomalyContext';
+import { useState } from 'react';
 import SearchCard from '../../components/SearchCard';
 import Button from '../../components/Button'
-// import { filterAnomalies } from '../../'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import { Colors } from '../../constants/colors'
 
 
 export default function SearchScreen() {
 
   const { allAnomalies } = useAnomaly()
+  const [startDate, setStartDate] = useState(new Date('2020-01-01'))
+  const [endDate, setEndDate] = useState(new Date())
+  const [filteredAnomalies, setFilteredAnomalies] = useState<typeof allAnomalies | null>(null)
 
   function filterAnomalies() {
-    // TODO: implement function
-    console.log("Anomalies get filtered after parameters")
+    const result = allAnomalies.filter(anomaly => {
+      const date = new Date(anomaly.date)
+      return date >= startDate && date <= endDate
+    })
+    setFilteredAnomalies(result)
   }
+
+  const displayedAnomalies = filteredAnomalies ?? allAnomalies
 
   return (
     <View style={globalStyles.container}>
@@ -39,20 +49,40 @@ export default function SearchScreen() {
             <Text style={globalStyles.h2}>
               From
             </Text>
+            <DateTimePicker
+              textColor={Colors.white}
+              accentColor={Colors.primary01}
+              themeVariant="dark"
+              value={startDate}
+              mode="date"
+              onChange={(_event, selectedDate) => {
+                if (selectedDate) setStartDate(selectedDate)
+              }}>
+            </DateTimePicker>
           </View>
           <View style={styles.filter}>
             <Text style={globalStyles.h2}>
               To
             </Text>
+            <DateTimePicker
+              textColor={Colors.white}
+              accentColor={Colors.primary01}
+              themeVariant="dark"
+              value={endDate}
+              mode="date"
+              onChange={(_event, selectedDate) => {
+                if (selectedDate) setEndDate(selectedDate)
+              }}>
+            </DateTimePicker>
           </View>
         </View>
 
         <Button
           text="Search"
-          onClick= {filterAnomalies}
+          onClick={filterAnomalies}
         />
 
-        {allAnomalies.map((anomaly) => (
+        {displayedAnomalies.map((anomaly) => (
           <Link key={anomaly.title} href={`/anomaly/${anomaly.title}`} asChild>
             <TouchableOpacity>
               <SearchCard
