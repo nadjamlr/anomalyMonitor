@@ -40,7 +40,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="Add"
+                name="add"
                 options={{ 
                     title: 'New',     
                     tabBarIcon: ({ color, size }) => (
@@ -52,7 +52,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="Anomalies"
+                name="anomalies"
                 options={{ 
                     title: 'Anomalies',     
                     tabBarIcon: ({ color, size }) => (
@@ -64,7 +64,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name="Search"
+                name="search"
                 options={{ 
                     title: 'Search',     
                     tabBarIcon: ({ color, size }) => (

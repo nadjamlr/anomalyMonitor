@@ -1,5 +1,5 @@
-// neue Anomalie damit erstellen 
-// Funktionen mitgeben custom Hook for cleaner access
+// Author: Nadja Müller
+// Anomaly Context – zentraler Datenspeicher der App
 
 
 import { createContext, useContext, useState } from "react";
@@ -7,14 +7,11 @@ import myAnomaliesData from '../data/myAnomalies.json';
 import allAnomaliesData from '../data/allAnomalies.json';
 
 
-const myAnomalies = myAnomaliesData.myanomalies
+// Define type
 const allAnomalies = allAnomaliesData.allanomalies
+type Anomaly = typeof allAnomalies[0]
 
 
-type Anomaly = typeof allAnomalies[0]       // Typ aus der JSON ableiten
-
-
-// festlegen, welche Daten und Funktionen im Context verfügbar sind
 const AnomalyContext = createContext({
     allAnomalies,
     myAnomalies: [] as Anomaly[],
@@ -22,15 +19,31 @@ const AnomalyContext = createContext({
     addAnomaly: (_anomaly: Anomaly) => {},
 })
 
-export const useAnomaly = () => useContext(AnomalyContext) // Custom Hook
+// Custom Hook
+export const useAnomaly = () => useContext(AnomalyContext)
 
 
-export function AnomalyProvider({children}: {children:React.ReactNode}) {
+// Context Provider
+export function AnomalyProvider({ children }: { children: React.ReactNode }) {
+
+    const [myAnomalies, setMyAnomalies] = useState<Anomaly[]>(
+        myAnomaliesData.myanomalies
+    )
+
+    function addAnomaly(anomaly: Anomaly) {
+        const alreadySaved = myAnomalies.find(a => a.id === anomaly.id)
+        if (!alreadySaved) {
+            setMyAnomalies(prev => [...prev, anomaly])
+        }
+    }
+
+    function getAnomalyById(id: string) {
+        return [...myAnomalies, ...allAnomalies].find(a => a.id === id)
+    }
+
     return (
-       <AnomalyContext.Provider
-            value = {useContext(AnomalyContext)}
-        >
+        <AnomalyContext.Provider value={{ allAnomalies, myAnomalies, addAnomaly, getAnomalyById }}>
             {children}
         </AnomalyContext.Provider>
-    );
+    )
 }

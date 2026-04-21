@@ -3,11 +3,11 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import Button from '../../components/Button';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import InputField from '../../components/InputField';
+import Button from '../../components/Button';
 import { useAnomaly } from '../../context/AnomalyContext'
 import { useState } from 'react';
+import InputField from '../../components/InputField';
 
 
 export default function AddScreen() {
@@ -18,6 +18,7 @@ export default function AddScreen() {
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
 
+    // Button funktion:
     function handleSave() {
         addAnomaly({
             id: Date.now().toString(),

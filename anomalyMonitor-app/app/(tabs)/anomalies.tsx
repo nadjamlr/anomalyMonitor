@@ -6,13 +6,13 @@ import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import AnomalyCard from '../../components/AnomalyCard';
 import { Link } from 'expo-router'
-import myAnomaliesData from '../../data/myAnomalies.json'
 import { useAnomaly } from '../../context/AnomalyContext';
-
-const myAnomalies = myAnomaliesData.myanomalies
 
 
 export default function AnomaliesScreen() {
+
+  const { myAnomalies } = useAnomaly()
+
   return (
     <View style={globalStyles.container}>
 
