@@ -17,11 +17,12 @@ export default function AddScreen() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
+    const [author, setAuthor] = useState('')
 
     // Button funktion:
     function handleSave() {
         addAnomaly({
-            copyright: '',
+            copyright: author,
             date: new Date().toISOString().split('T')[0],
             title: name,
             explanation: description,
@@ -59,6 +60,12 @@ export default function AddScreen() {
                     label="Description"
                     value={description}
                     onChangeText={setDescription}
+                />
+                <InputField
+                    type="text"
+                    label="Author"
+                    value={author}
+                    onChangeText={setAuthor}
                 />
                 <InputField
                     type="image"
