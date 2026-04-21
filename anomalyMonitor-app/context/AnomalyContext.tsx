@@ -3,15 +3,21 @@
 
 import { fetchAnomalies } from "../services/AnomalyService";
 import { createContext, useContext, useState, useEffect } from "react";
-import myAnomaliesData from '../data/myAnomalies.json';
 import { Anomaly } from "../services/AnomalyService";
 
 
-const AnomalyContext = createContext({
-    myAnomalies: [] as Anomaly[],
-    getAnomalyByName: (title: string) => allAnomalies.find((a) => a.title === title),
-    addAnomaly: (anomaly: Anomaly) => {},
+const AnomalyContext = createContext<{
+    allAnomalies: Anomaly[];
+    myAnomalies: Anomaly[];
+    getAnomalyByName: (title: string) => Anomaly | undefined;
+    addAnomaly: (anomaly: Anomaly) => void;
+}>({
+    allAnomalies: [],
+    myAnomalies: [],
+    getAnomalyByName: () => undefined,
+    addAnomaly: () => {},
 })
+
 
 // Custom Hook
 export const useAnomaly = () => useContext(AnomalyContext)
@@ -20,9 +26,7 @@ export const useAnomaly = () => useContext(AnomalyContext)
 // Context Provider
 export function AnomalyProvider({ children }: { children: React.ReactNode }) {
 
-    const [myAnomalies, setMyAnomalies] = useState<Anomaly[]>(
-        myAnomaliesData.myanomalies
-    )
+    const [myAnomalies, setMyAnomalies] = useState<Anomaly[]>([])
 
     const [allAnomalies, setAllAnomalies] = useState<Anomaly[]>([])
 

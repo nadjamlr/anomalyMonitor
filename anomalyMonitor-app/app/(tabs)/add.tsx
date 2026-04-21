@@ -4,10 +4,10 @@
 
 import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Button from '../../components/Button';
 import { useAnomaly } from '../../context/AnomalyContext'
 import { useState } from 'react';
 import InputField from '../../components/InputField';
+import Button from '../../components/Button';
 
 
 export default function AddScreen() {
@@ -21,13 +21,12 @@ export default function AddScreen() {
     // Button funktion:
     function handleSave() {
         addAnomaly({
-            id: Date.now().toString(),
+            copyright: '',
+            date: new Date().toISOString().split('T')[0],
             title: name,
             explanation: description,
             url: image,
             hdurl: image,
-            date: new Date().toISOString().split('T')[0],
-            copyright: '',
             media_type: 'image',
             service_version: 'v1',
         })

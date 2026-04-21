@@ -27,7 +27,7 @@ export default function AnomaliesScreen() {
 
         <ScrollView style={styles.bodyContent}>
           {myAnomalies.map((anomaly) => (
-            <Link key={anomaly.id} href={`/anomaly/${anomaly.id}`} asChild>
+            <Link key={anomaly.title} href={`/anomaly/${anomaly.title}`} asChild>
               <TouchableOpacity>
                 <AnomalyCard 
                   image={anomaly.url} 

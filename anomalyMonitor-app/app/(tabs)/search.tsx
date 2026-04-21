@@ -3,11 +3,11 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import SearchCard from '../../components/SearchCard';
-import Button from '../../components/Button'
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router'
 import { useAnomaly } from '../../context/AnomalyContext';
+import SearchCard from '../../components/SearchCard';
+import Button from '../../components/Button'
 // import { filterAnomalies } from '../../'
 
 
