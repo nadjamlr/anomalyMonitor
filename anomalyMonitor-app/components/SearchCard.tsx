@@ -13,7 +13,6 @@ interface SearchCardProps {
     date: string;
 }
 
-
 export default function SearchCard({image, heading, subheading, date}: SearchCardProps) {
     return(
         <View style={styles.card}>
