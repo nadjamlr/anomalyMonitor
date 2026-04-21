@@ -7,10 +7,12 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-nativ
 import { Link } from 'expo-router'
 import { useAnomaly } from '../../context/AnomalyContext';
 import { useState } from 'react';
+import { Colors } from '../../constants/colors'
+import SearchBar from '../../components/SearchBar';
 import SearchCard from '../../components/SearchCard';
 import Button from '../../components/Button'
 import DateTimePicker from '@react-native-community/datetimepicker'
-import { Colors } from '../../constants/colors'
+
 
 
 export default function SearchScreen() {
@@ -19,11 +21,14 @@ export default function SearchScreen() {
   const [startDate, setStartDate] = useState(new Date('2020-01-01'))
   const [endDate, setEndDate] = useState(new Date())
   const [filteredAnomalies, setFilteredAnomalies] = useState<typeof allAnomalies | null>(null)
+  const [searchName, setSearchName] = useState('')
 
   function filterAnomalies() {
     const result = allAnomalies.filter(anomaly => {
       const date = new Date(anomaly.date)
-      return date >= startDate && date <= endDate
+      const matchesDate = date >= startDate && date <= endDate
+      const matchesName = searchName === '' || anomaly.title.toLowerCase().includes(searchName.toLowerCase())
+      return matchesDate && matchesName
     })
     setFilteredAnomalies(result)
   }
@@ -60,6 +65,7 @@ export default function SearchScreen() {
               }}>
             </DateTimePicker>
           </View>
+
           <View style={styles.filter}>
             <Text style={globalStyles.h2}>
               To
@@ -76,6 +82,11 @@ export default function SearchScreen() {
             </DateTimePicker>
           </View>
         </View>
+
+        <SearchBar
+          value={searchName}
+          onChangeText={setSearchName}
+        />
 
         <Button
           text="Search"
