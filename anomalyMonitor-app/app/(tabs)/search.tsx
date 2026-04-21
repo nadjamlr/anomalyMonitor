@@ -4,17 +4,16 @@
 
 import { globalStyles } from '../../constants/styles';
 import SearchCard from '../../components/SearchCard';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import Button from '../../components/Button'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router'
-import allAnomaliesData from '../../data/allAnomalies.json'
 import { useAnomaly } from '../../context/AnomalyContext';
 // import { filterAnomalies } from '../../'
 
-const allAnomalies = allAnomaliesData.allanomalies
-
 
 export default function SearchScreen() {
+
+  const allAnomalies = useAnomaly()
 
   function filterAnomalies() {
     // TODO: implement function
@@ -54,7 +53,7 @@ export default function SearchScreen() {
         />
 
         {allAnomalies.map((anomaly) => (
-          <Link key={anomaly.id} href={`/anomaly/${anomaly.id}`} asChild>
+          <Link key={anomaly.title} href={`/anomaly/${anomaly.title}`} asChild>
             <TouchableOpacity>
               <SearchCard
                 image={anomaly.url}

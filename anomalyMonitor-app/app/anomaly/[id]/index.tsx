@@ -11,11 +11,11 @@ import { Colors } from '../../../constants/colors'
 
 
 export default function AnomalyDetails() {
-    const { id } = useLocalSearchParams();
+    const { title } = useLocalSearchParams();
     const router = useRouter();
-    const { getAnomalyById, addAnomaly } = useAnomaly()
+    const { getAnomalyByName, addAnomaly } = useAnomaly()
 
-    const anomaly = getAnomalyById(id as string);
+    const anomaly = getAnomalyByName(title as string);
 
     if (!anomaly) {
         return (

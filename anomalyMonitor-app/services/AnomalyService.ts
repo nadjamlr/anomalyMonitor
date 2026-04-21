@@ -5,7 +5,7 @@ const API_NASA_URL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
 
 
 // Anomaly Type
-interface Anomaly {
+export interface Anomaly {
   date: string;
   explanation: string;
   hdurl?: string;

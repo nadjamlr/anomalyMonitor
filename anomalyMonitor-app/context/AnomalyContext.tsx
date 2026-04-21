@@ -1,22 +1,16 @@
 // Author: Nadja Müller
 // Anomaly Context – zentraler Datenspeicher der App
 
-
-import { createContext, useContext, useState } from "react";
+import { fetchAnomalies } from "../services/AnomalyService";
+import { createContext, useContext, useState, useEffect } from "react";
 import myAnomaliesData from '../data/myAnomalies.json';
-import allAnomaliesData from '../data/allAnomalies.json';
-
-
-// Define type
-const allAnomalies = allAnomaliesData.allanomalies
-type Anomaly = typeof allAnomalies[0]
+import { Anomaly } from "../services/AnomalyService";
 
 
 const AnomalyContext = createContext({
-    allAnomalies,
     myAnomalies: [] as Anomaly[],
-    getAnomalyById: (id: string) => allAnomalies.find((a) => a.id === id),
-    addAnomaly: (_anomaly: Anomaly) => {},
+    getAnomalyByName: (title: string) => allAnomalies.find((a) => a.title === title),
+    addAnomaly: (anomaly: Anomaly) => {},
 })
 
 // Custom Hook
@@ -30,19 +24,25 @@ export function AnomalyProvider({ children }: { children: React.ReactNode }) {
         myAnomaliesData.myanomalies
     )
 
+    const [allAnomalies, setAllAnomalies] = useState<Anomaly[]>([])
+
+    useEffect(() => {
+        fetchAnomalies().then(data => setAllAnomalies(data))
+    }, [])
+
     function addAnomaly(anomaly: Anomaly) {
-        const alreadySaved = myAnomalies.find(a => a.id === anomaly.id)
+        const alreadySaved = myAnomalies.find(a => a.title === anomaly.title)
         if (!alreadySaved) {
             setMyAnomalies(prev => [...prev, anomaly])
         }
     }
 
-    function getAnomalyById(id: string) {
-        return [...myAnomalies, ...allAnomalies].find(a => a.id === id)
+    function getAnomalyByName(title: string) {
+        return [...myAnomalies, ...allAnomalies].find(a => a.title === title)
     }
 
     return (
-        <AnomalyContext.Provider value={{ allAnomalies, myAnomalies, addAnomaly, getAnomalyById }}>
+        <AnomalyContext.Provider value={{ allAnomalies, myAnomalies, addAnomaly, getAnomalyByName }}>
             {children}
         </AnomalyContext.Provider>
     )
