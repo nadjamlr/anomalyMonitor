@@ -4,9 +4,10 @@
 
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { globalStyles } from '../../../constants/styles';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useAnomaly } from '../../../context/AnomalyContext'
 import { Colors } from '../../../constants/colors'
+import FadeScrollView from "../../../components/FadeScrollView";
 import Button from '../../../components/Button'
 
 
@@ -31,7 +32,7 @@ export default function AnomalyDetails() {
             <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
                 <Text style={styles.closeButtonText}>✕</Text>
             </TouchableOpacity>
-            <ScrollView style={styles.scrollView}>
+            <FadeScrollView style={styles.scrollView}>
                 <View style={globalStyles.imageContainer}>
                     <Image
                         source={{ uri: anomaly.url }}
@@ -53,7 +54,7 @@ export default function AnomalyDetails() {
                 <Text style={globalStyles.p2}>
                     {anomaly.copyright}
                 </Text>
-            </ScrollView>
+            </FadeScrollView>
             {!isAlreadySaved && (
                 <View style={styles.bottomOverlay}>
                     <Button

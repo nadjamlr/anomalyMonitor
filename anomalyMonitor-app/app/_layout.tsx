@@ -7,7 +7,7 @@ import { AnomalyProvider } from '../context/AnomalyContext'
 
 export default function Layout() {
     return (
-        <AnomalyProvider> {/*Von allen Pages auf Daten zugreifen*/}
+        <AnomalyProvider>
         <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>

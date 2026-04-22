@@ -67,32 +67,32 @@ export default function SearchScreen() {
             <Text style={globalStyles.h2}>
               From
             </Text>
-            <DateTimePicker
-              textColor={Colors.white}
-              accentColor={Colors.primary01}
-              themeVariant="dark"
-              value={startDate}
-              mode="date"
-              onChange={(_event, selectedDate) => {
-                if (selectedDate) setStartDate(selectedDate)
-              }}>
-            </DateTimePicker>
+              <DateTimePicker
+                textColor={Colors.white}
+                accentColor={Colors.primary01}
+                themeVariant="dark"
+                value={startDate}
+                mode="date"
+                onChange={(_event, selectedDate) => {
+                  if (selectedDate) setStartDate(selectedDate)
+                }}
+              />
           </View>
 
           <View style={styles.filter}>
             <Text style={globalStyles.h2}>
               To
             </Text>
-            <DateTimePicker
-              textColor={Colors.white}
-              accentColor={Colors.primary01}
-              themeVariant="dark"
-              value={endDate}
-              mode="date"
-              onChange={(_event, selectedDate) => {
-                if (selectedDate) setEndDate(selectedDate)
-              }}>
-            </DateTimePicker>
+              <DateTimePicker
+                textColor={Colors.white}
+                accentColor={Colors.primary01}
+                themeVariant="dark"
+                value={endDate}
+                mode="date"
+                onChange={(_event, selectedDate) => {
+                  if (selectedDate) setEndDate(selectedDate)
+                }}
+              />
           </View>
         </View>
 
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
     gap: 10,
     height: 60,
     marginBottom: 10,
+    marginTop: 10,
   },
   filterFull: {
     fontSize: 12,

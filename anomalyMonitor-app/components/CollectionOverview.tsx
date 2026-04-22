@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
         width: '30%',
         backgroundColor: Colors.primary02,
         borderRadius: 8,
+        borderColor: Colors.primary04,
+        borderWidth: 1,
         padding: 8,
         alignItems: 'center',
     },

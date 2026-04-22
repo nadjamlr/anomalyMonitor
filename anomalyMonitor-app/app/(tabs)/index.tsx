@@ -3,8 +3,8 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import CollectionOverview from '../../components/CollectionDiagram';
+import { Text, View, Image } from 'react-native';
+import CollectionOverview from '../../components/CollectionOverview';
 import FadeScrollView from '../../components/FadeScrollView';
 
 
@@ -35,6 +35,5 @@ export default function HomeScreen() {
         </CollectionOverview>
     </FadeScrollView>
   </View>
-
   );
 }

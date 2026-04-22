@@ -42,7 +42,7 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: "column",
         gap: 24,
-        paddingTop: 70,
+        paddingTop: 60,
         paddingBottom: 0,
         paddingHorizontal: 20,
     },
