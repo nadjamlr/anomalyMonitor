@@ -10,13 +10,12 @@ import { Colors } from '../constants/colors'
 interface AnomalyCardProps {
     image: string;
     heading: string;
-    subheading: string;
     date: string;
     time?: string;
 }
 
 
-export default function AnomalyCard({image, heading, subheading, date, time}: AnomalyCardProps) {
+export default function AnomalyCard({image, heading, date, time}: AnomalyCardProps) {
     return(
         <View style={styles.card}>
             <Image
@@ -28,9 +27,6 @@ export default function AnomalyCard({image, heading, subheading, date, time}: An
                 <Text style={globalStyles.h3}>
                     {heading}
                 </Text>
-                {/*<Text style={globalStyles.p}>
-                    {subheading}
-                </Text>*/}
                 <View style={globalStyles.flexHorizontal}>
                     <Text style={globalStyles.p2}>
                         {date}

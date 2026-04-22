@@ -4,6 +4,8 @@
 
 import { globalStyles } from '../../constants/styles';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { useAnomaly } from '../../context/AnomalyContext';
+import CollectionOverview from '../../components/CollectionDiagram';
 
 
 export default function HomeScreen() {
@@ -27,6 +29,8 @@ export default function HomeScreen() {
           <Text style={globalStyles.p}>
               Review the mission status, recent activity and the most important anomaly alerts in one place.
           </Text>
+          <CollectionOverview>
+          </CollectionOverview>
       </View>
   </View>
 

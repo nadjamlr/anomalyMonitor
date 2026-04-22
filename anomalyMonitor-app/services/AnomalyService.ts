@@ -14,6 +14,7 @@ export interface Anomaly {
     service_version: string;
     title: string;
     url: string
+    source: 'manual' | 'search'
 }
 
 

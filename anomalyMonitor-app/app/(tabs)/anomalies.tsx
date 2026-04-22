@@ -32,7 +32,6 @@ export default function AnomaliesScreen() {
                 <AnomalyCard 
                   image={anomaly.url} 
                   heading={anomaly.title} 
-                  subheading={anomaly.explanation}  
                   date={anomaly.date}
                 />
               </TouchableOpacity>

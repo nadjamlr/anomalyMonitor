@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '100%',
-        color: '#fff',
+        color: Colors.white,
     }
 })

@@ -30,6 +30,7 @@ export default function AddScreen() {
             hdurl: image,
             media_type: 'image',
             service_version: 'v1',
+            source: 'manual',
         })
         setName('')
         setDescription('')

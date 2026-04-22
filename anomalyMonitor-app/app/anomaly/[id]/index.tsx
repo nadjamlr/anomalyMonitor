@@ -16,7 +16,7 @@ export default function AnomalyDetails() {
     const { getAnomalyByName, addAnomaly, myAnomalies } = useAnomaly()
 
     const anomaly = getAnomalyByName(id as string);
-    const isAlreadySaved = myAnomalies.some(a => a.title === anomaly?.title)
+    const isAlreadySaved = myAnomalies.some(a => a.title === anomaly?.title);
 
     if (!anomaly) {
         return (
@@ -58,7 +58,7 @@ export default function AnomalyDetails() {
                 <View style={styles.bottomOverlay}>
                     <Button
                         text="Save to my anomalies"
-                        onClick={() => addAnomaly(anomaly)}
+                        onClick={() => addAnomaly({ ...anomaly, source: 'search' })}
                     />
                 </View>
             )}

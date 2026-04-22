@@ -27,7 +27,6 @@ export const useAnomaly = () => useContext(AnomalyContext)
 export function AnomalyProvider({ children }: { children: React.ReactNode }) {
 
     const [myAnomalies, setMyAnomalies] = useState<Anomaly[]>([])
-
     const [allAnomalies, setAllAnomalies] = useState<Anomaly[]>([])
 
     useEffect(() => {
