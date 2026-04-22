@@ -13,19 +13,22 @@ export default function CollectionOverview() {
     const  {myAnomalies} = useAnomaly()
 
     const manuallyAdded = myAnomalies.filter(a => a.source === 'manual').length
-
     const searchAdded = myAnomalies.filter(a => a.source === 'search').length
-
     const totallyAdded = myAnomalies.length
 
     return(
-        <View style={styles.wrapper}>
-            <Text style={globalStyles.h2}>
-                Collection Oerview
-            </Text>
+        <View style={styles.contentContainer}>
+            <View style={globalStyles.heading}>
+                <Text style={globalStyles.h2}>
+                    Overview
+                </Text>
+                <Text style={globalStyles.h1}>
+                    Collection
+                </Text>
+            </View>
             <View style={styles.stats}>
                 <View style={styles.stat}>
-                    <Text style={globalStyles.h3}>
+                    <Text style={globalStyles.h2}>
                         Total
                     </Text>
                     <Text style={globalStyles.h1}>
@@ -33,16 +36,16 @@ export default function CollectionOverview() {
                     </Text>
                 </View>
                 <View style={styles.stat}>
-                    <Text style={globalStyles.h3}>
-                        Manuallly Added
+                    <Text style={globalStyles.h2}>
+                        Manual
                     </Text>
                     <Text style={globalStyles.h1}>
                         {manuallyAdded}
                     </Text>
                 </View>
                 <View style={styles.stat}>
-                    <Text style={globalStyles.h3}>
-                        APOD Added
+                    <Text style={globalStyles.h2}>
+                        APOD
                     </Text>
                     <Text style={globalStyles.h1}>
                         {searchAdded}
@@ -55,15 +58,20 @@ export default function CollectionOverview() {
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        width: '100%',
-        backgroundColor: Colors.primary02,
-        paddingHorizontal: 10,
+    contentContainer: {
+        gap: 10,
+        marginTop: 40,
     },
     stats: {
         width: '100%',
+        flexDirection: 'row',
+        gap: 10,
     },
     stat: {
         width: '30%',
+        backgroundColor: Colors.primary02,
+        borderRadius: 8,
+        padding: 8,
+        alignItems: 'center',
     },
 })

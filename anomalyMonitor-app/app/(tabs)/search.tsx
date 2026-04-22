@@ -3,7 +3,8 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import FadeScrollView from '../../components/FadeScrollView';
 import { Link } from 'expo-router'
 import { useAnomaly } from '../../context/AnomalyContext';
 import { useState } from 'react';
@@ -47,7 +48,19 @@ export default function SearchScreen() {
           </Text>
       </View>
 
-      <ScrollView style={styles.bodyContent}>
+      <FadeScrollView style={globalStyles.scrollContainer}>
+
+        <View style={globalStyles.flexHorizontal}>
+          <View style={styles.filterFull}>
+            <Text style={globalStyles.h2}>
+              Name
+            </Text>
+            <SearchBar
+              value={searchName}
+              onChangeText={setSearchName}
+            />
+          </View>
+        </View>
 
         <View style={globalStyles.flexHorizontal}>
           <View style={styles.filter}>
@@ -83,11 +96,6 @@ export default function SearchScreen() {
           </View>
         </View>
 
-        <SearchBar
-          value={searchName}
-          onChangeText={setSearchName}
-        />
-
         <Button
           text="Search"
           onClick={filterAnomalies}
@@ -105,7 +113,7 @@ export default function SearchScreen() {
             </TouchableOpacity>
           </Link>
         ))}
-      </ScrollView>
+      </FadeScrollView>
 
   </View>
   );
@@ -113,16 +121,20 @@ export default function SearchScreen() {
 
 
 const styles = StyleSheet.create({
-  bodyContent: {
-    width: "100%",
-    flex: 8,
-    flexDirection: "column",
-  },
   filter: {
     fontSize: 12,
     width: '50%',
     flexDirection: 'column',
     gap: 10,
     height: 60,
+    marginBottom: 10,
+  },
+  filterFull: {
+    fontSize: 12,
+    width: '100%',
+    flexDirection: 'column',
+    gap: 10,
+    height: 60,
+    marginBottom: 20,
   },
 })

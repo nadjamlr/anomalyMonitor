@@ -3,7 +3,8 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { Text, View} from 'react-native';
+import FadeScrollView from '../../components/FadeScrollView';
 import { useAnomaly } from '../../context/AnomalyContext'
 import { useState } from 'react';
 import InputField from '../../components/InputField';
@@ -35,6 +36,7 @@ export default function AddScreen() {
         setName('')
         setDescription('')
         setImage('')
+        setAuthor('')
     }
 
     return (
@@ -49,7 +51,7 @@ export default function AddScreen() {
                 </Text>
             </View>
 
-            <ScrollView style={styles.bodyContent}>
+            <FadeScrollView style={globalStyles.scrollContainer}>
                 <InputField
                     type="text"
                     label="Name"
@@ -78,17 +80,8 @@ export default function AddScreen() {
                     text="Save anomaly"
                     onClick={handleSave}
                 />
-            </ScrollView>
+            </FadeScrollView>
 
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    bodyContent: {
-        width: "100%",
-        flex: 8,
-        flexDirection: "column",
-    },
-})

@@ -3,7 +3,8 @@
 
 
 import { globalStyles } from '../../constants/styles';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import FadeScrollView from '../../components/FadeScrollView';
 import AnomalyCard from '../../components/AnomalyCard';
 import { Link } from 'expo-router'
 import { useAnomaly } from '../../context/AnomalyContext';
@@ -25,30 +26,26 @@ export default function AnomaliesScreen() {
             </Text>
         </View>
 
-        <ScrollView style={styles.bodyContent}>
-          {myAnomalies.map((anomaly) => (
-            <Link key={anomaly.title} href={`/anomaly/${anomaly.title}`} asChild>
-              <TouchableOpacity>
-                <AnomalyCard 
-                  image={anomaly.url} 
-                  heading={anomaly.title} 
-                  date={anomaly.date}
-                />
-              </TouchableOpacity>
-            </Link>
-          ))}
-        </ScrollView>
+        <FadeScrollView style={globalStyles.scrollContainer}>
+          {myAnomalies.length > 0 ? (
+            myAnomalies.map((anomaly) => (
+              <Link key={anomaly.title} href={`/anomaly/${anomaly.title}`} asChild>
+                <TouchableOpacity>
+                  <AnomalyCard
+                    image={anomaly.url}
+                    heading={anomaly.title}
+                    date={anomaly.date}
+                  />
+                </TouchableOpacity>
+              </Link>
+            ))
+          ) : (
+            <Text style={globalStyles.p}>
+              Currently no saved anomalies
+            </Text>
+          )}
+        </FadeScrollView>
         
   </View>
-
   );
 }
-
-
-const styles = StyleSheet.create({
-  bodyContent: {
-    width: "100%",
-    flex: 8,
-    flexDirection: "column",
-  },
-})
